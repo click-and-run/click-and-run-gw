@@ -1,0 +1,103 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLicenseLabel">Create or edit a License</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!license.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="license.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_service">Service</label>
+            <select class="form-control" name="service" [(ngModel)]="license.service" id="field_service"  required>
+                <option value="COURSE">COURSE</option>
+                <option value="ASSESSMENT">ASSESSMENT</option>
+                <option value="NEWS">NEWS</option>
+                <option value="VISIO">VISIO</option>
+            </select>
+            <div [hidden]="!(editForm.controls.service?.dirty && editForm.controls.service?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.service?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_studyLanguage">Study Language</label>
+            <select class="form-control" name="studyLanguage" [(ngModel)]="license.studyLanguage" id="field_studyLanguage"  required>
+                <option value="FR_FR">FR_FR</option>
+                <option value="NL_BE">NL_BE</option>
+                <option value="DE_DE">DE_DE</option>
+                <option value="ES_ES">ES_ES</option>
+                <option value="IT_IT">IT_IT</option>
+                <option value="EN_GB">EN_GB</option>
+            </select>
+            <div [hidden]="!(editForm.controls.studyLanguage?.dirty && editForm.controls.studyLanguage?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.studyLanguage?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_validSince">Valid Since</label>
+            <div class="d-flex">
+                <input id="field_validSince" type="datetime-local" class="form-control" name="validSince" [(ngModel)]="license.validSince"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.validSince?.dirty && editForm.controls.validSince?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.validSince?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.validSince?.errors?.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_validUntil">Valid Until</label>
+            <div class="d-flex">
+                <input id="field_validUntil" type="datetime-local" class="form-control" name="validUntil" [(ngModel)]="license.validUntil"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.validUntil?.dirty && editForm.controls.validUntil?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.validUntil?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.validUntil?.errors?.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_consumed">Consumed</label>
+            <input type="checkbox" class="form-control" name="consumed" id="field_consumed"
+                [(ngModel)]="license.consumed"  />
+        </div>
+
+        <div class="form-group">
+            <label for="field_learner">Learner</label>
+            <select class="form-control" id="field_learner" name="learner" [(ngModel)]="license.learner" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="learnerOption.id === license.learner?.id ? license.learner : learnerOption" *ngFor="let learnerOption of learners; trackBy: trackLearnerById">{{learnerOption.login}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

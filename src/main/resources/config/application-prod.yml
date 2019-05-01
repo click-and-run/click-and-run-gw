@@ -86,7 +86,7 @@ liquibase:
 #        keyAlias: clickandrungw
 # ===================================================================
 server:
-    port: 8081
+    port: 8082
     compression:
         enabled: true
         mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
