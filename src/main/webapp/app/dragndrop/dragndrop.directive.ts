@@ -1,4 +1,5 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
+import { JhiAlertService } from 'ng-jhipster';
 
 @Directive({
     selector: '[jhiDragndrop]'
@@ -8,6 +9,8 @@ export class DragndropDirective implements OnInit {
     static readonly FILE_CLEAR = 'file-clear';
     static readonly FILE_DRAGOVER = 'file-dragover';
     static readonly FILE_DROPPED = 'file-dropped';
+
+    @Input() private fileLimit: number;
 
     private fileList: any = [];
 
@@ -23,10 +26,9 @@ export class DragndropDirective implements OnInit {
 
     set elementClass(val: string) {
         this._elementClass = val.split(' ');
-        console.log(this._elementClass);
     }
 
-    constructor() {
+    constructor(private alertService: JhiAlertService) {
     }
 
     ngOnInit(): void {
@@ -51,14 +53,20 @@ export class DragndropDirective implements OnInit {
         evt.preventDefault();
         evt.stopPropagation();
 
-        this.fileList = evt.dataTransfer.files;
+        this.removeClass(DragndropDirective.FILE_DRAGOVER);
 
-        if (this.fileList.length > 0) {
-            this.removeClass(DragndropDirective.FILE_CLEAR);
-            this.pushClass(DragndropDirective.FILE_DROPPED);
+        if (evt.dataTransfer.files.length <= this.fileLimit) {
+            this.fileList = evt.dataTransfer.files;
+
+            if (this.fileList.length > 0) {
+                this.removeClass(DragndropDirective.FILE_CLEAR);
+                this.pushClass(DragndropDirective.FILE_DROPPED);
+            }
+
+            this.fileListEventEmitter.emit(this.fileList);
+        } else {
+            this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
         }
-
-        this.fileListEventEmitter.emit(this.fileList);
     }
 
     private pushClass(newClass) {

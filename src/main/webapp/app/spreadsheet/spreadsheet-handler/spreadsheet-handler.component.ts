@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'jhi-spreadsheet-handler',
-  templateUrl: './spreadsheet-handler.component.html',
-  styles: []
+    selector: 'jhi-spreadsheet-handler',
+    templateUrl: './spreadsheet-handler.component.html',
+    styles: []
 })
 export class SpreadsheetHandlerComponent implements OnInit {
 
-  constructor() { }
+    @Input() public title = 'spreadsheet title';
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'jhi-dragndrop',
@@ -6,6 +6,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
     styleUrls: ['./dragndrop.component.css']
 })
 export class DragndropComponent implements OnInit {
+
+    @Input() public fileLimit: number;
+
+    public fileList: any = [];
 
     @Output() private fileListEventEmitter: EventEmitter<FileList> = new EventEmitter();
 
@@ -16,6 +20,7 @@ export class DragndropComponent implements OnInit {
     }
 
     onFilesChange(files: FileList) {
+        this.fileList = files;
         this.fileListEventEmitter.emit(files);
     }
 }
