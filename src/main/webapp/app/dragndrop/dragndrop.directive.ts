@@ -1,14 +1,15 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
     selector: '[jhiDragndrop]'
 })
 export class DragndropDirective {
 
-    @HostBinding('style.background') private background = '#eee';
-
-    private darkBackground = '#999';
     private lightBackground = '#eee';
+    private darkBackground = '#999';
+    @HostBinding('style.background') private background = this.lightBackground;
+
+    @Output() private fileListEventEmitter: EventEmitter<FileList> = new EventEmitter();
 
     constructor() {
     }
@@ -17,7 +18,6 @@ export class DragndropDirective {
         evt.preventDefault();
         evt.stopPropagation();
         this.background = this.darkBackground;
-        console.log('Dragged over');
     }
 
     @HostListener('dragleave', ['$event'])
@@ -34,7 +34,8 @@ export class DragndropDirective {
 
         const files = evt.dataTransfer.files;
         if (files.length > 0) {
-            this.background = this.lightBackground
+            this.background = this.darkBackground;
         }
+        this.fileListEventEmitter.emit(files);
     }
 }
