@@ -1,30 +1,49 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Directive({
     selector: '[jhiDragndrop]'
 })
-export class DragndropDirective {
+export class DragndropDirective implements OnInit {
 
-    private lightBackground = '#eee';
-    private darkBackground = '#999';
-    @HostBinding('style.background') private background = this.lightBackground;
+    static readonly FILE_CLEAR = 'file-clear';
+    static readonly FILE_DRAGOVER = 'file-dragover';
+    static readonly FILE_DROPPED = 'file-dropped';
+
+    private fileList: any = [];
+
+    protected _elementClass: Array<string> = [];
 
     @Output() private fileListEventEmitter: EventEmitter<FileList> = new EventEmitter();
 
+    @Input('class')
+    @HostBinding('class')
+    get elementClass(): string {
+        return this._elementClass.join(' ');
+    }
+
+    set elementClass(val: string) {
+        this._elementClass = val.split(' ');
+        console.log(this._elementClass);
+    }
+
     constructor() {
+    }
+
+    ngOnInit(): void {
+        this.pushClass(DragndropDirective.FILE_CLEAR);
     }
 
     @HostListener('dragover', ['$event']) onDragOver(evt) {
         evt.preventDefault();
         evt.stopPropagation();
-        this.background = this.darkBackground;
+        this.pushClass(DragndropDirective.FILE_DRAGOVER);
     }
 
     @HostListener('dragleave', ['$event'])
     public onDragLeave(evt) {
         evt.preventDefault();
         evt.stopPropagation();
-        this.background = this.lightBackground;
+        this.removeClass(DragndropDirective.FILE_DRAGOVER)
     }
 
     @HostListener('drop', ['$event'])
@@ -32,10 +51,23 @@ export class DragndropDirective {
         evt.preventDefault();
         evt.stopPropagation();
 
-        const files = evt.dataTransfer.files;
-        if (files.length > 0) {
-            this.background = this.darkBackground;
+        this.fileList = evt.dataTransfer.files;
+
+        if (this.fileList.length > 0) {
+            this.removeClass(DragndropDirective.FILE_CLEAR);
+            this.pushClass(DragndropDirective.FILE_DROPPED);
         }
-        this.fileListEventEmitter.emit(files);
+
+        this.fileListEventEmitter.emit(this.fileList);
+    }
+
+    private pushClass(newClass) {
+        if (this._elementClass.indexOf(newClass) === -1) {
+            this._elementClass.push(newClass)
+        }
+    }
+
+    private removeClass(oldClass) {
+        this._elementClass = this._elementClass.filter((currentClass) => currentClass !== oldClass);
     }
 }
