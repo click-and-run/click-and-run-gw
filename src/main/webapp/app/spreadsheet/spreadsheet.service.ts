@@ -10,7 +10,10 @@ export class SpreadsheetService {
 
     public validate(resource, file) {
         const fullUrl = `${this.apiUrl}/${resource}/validate`;
-        console.log(`POST ${fullUrl}`);
-        return this.http.post(fullUrl, {file});
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        return this.http.post(fullUrl, formData);
     }
 }
