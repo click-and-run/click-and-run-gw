@@ -1,4 +1,4 @@
 <div>
-    <span>{{title}}</span>
-    <jhi-dragndrop fileLimit="1"></jhi-dragndrop>
+    <span>{{resource}}</span>
+    <jhi-dragndrop fileLimit="1" (fileListEventEmitter)="validateFile($event[0])"></jhi-dragndrop>
 </div>

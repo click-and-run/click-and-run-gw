@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SpreadsheetComponent } from './spreadsheet.component';
 import { SpreadsheetHandlerComponent } from './spreadsheet-handler/spreadsheet-handler.component';
 import { DragndropModule } from '../dragndrop/dragndrop.module';
+import { SpreadsheetService } from './spreadsheet.service';
 
 @NgModule({
     imports: [
@@ -14,6 +15,8 @@ import { DragndropModule } from '../dragndrop/dragndrop.module';
         SpreadsheetHandlerComponent
     ], exports: [
         SpreadsheetComponent
+    ], providers: [
+        SpreadsheetService
     ]
 })
 export class SpreadsheetModule {
