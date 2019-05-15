@@ -16,11 +16,16 @@ export class SpreadsheetValidationComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.sub = this.spreadsheetService.sharedValidation.subscribe((wbv) => this.workbookValidation = wbv);
+        this.sub = this.spreadsheetService.sharedValidation.subscribe((wbv) => {
+            this.workbookValidation = wbv;
+        });
     }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
+    getSheetValidations() {
+        return Array.from(this.workbookValidation.validations.entries());
+    }
 }

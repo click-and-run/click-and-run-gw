@@ -1,4 +1,5 @@
-<p>
-    spreadsheet-validation works!
-    {{workbookValidation}}
-</p>
+<div *ngIf="workbookValidation !== undefined">
+    <div *ngFor="let sheetValidation of getSheetValidations()">
+        <jhi-sheet-validation *ngIf="!sheetValidation[1].valid" [name]="sheetValidation[0]" [validation]="sheetValidation[1]"></jhi-sheet-validation>
+    </div>
+</div>

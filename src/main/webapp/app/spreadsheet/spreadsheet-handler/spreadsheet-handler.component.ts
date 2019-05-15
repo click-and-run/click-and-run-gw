@@ -37,7 +37,6 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
     }
 
     seeValidation() {
-        console.log('You want to see the validation');
         this.spreadsheetService.shareValidation(this.workbookValidation);
     }
 }

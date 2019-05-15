@@ -18,7 +18,15 @@ export class SpreadsheetService {
         formData.append('file', file);
 
         return this.http.post(fullUrl, formData)
-            .map((response) => (<WorkbookValidationModel>response.json()));
+            .map((response) => {
+                const validations = new Map();
+
+                const wbv = <WorkbookValidationModel>response.json();
+                Object.keys(wbv.validations).forEach((key) => validations.set(key, wbv.validations[key]));
+                wbv.validations = validations;
+
+                return wbv;
+            });
     }
 
     shareValidation(wbv: WorkbookValidationModel) {
