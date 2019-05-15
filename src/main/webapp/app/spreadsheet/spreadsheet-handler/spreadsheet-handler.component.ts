@@ -12,7 +12,7 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
 
     @Input() public resource: string;
     private sub: Subscription;
-    public wb: WorkbookValidationModel;
+    public workbookValidation: WorkbookValidationModel;
 
     constructor(private spreadsheetService: SpreadsheetService) {
     }
@@ -20,10 +20,10 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
     ngOnInit() {
     }
 
-    public validateFile(file) {
-        this.sub = this.spreadsheetService.validate(this.resource, file).subscribe((value) => {
-            console.log(value);
-            this.wb = value;
+    public validateWorkbook(file) {
+        this.sub = this.spreadsheetService.validate(this.resource, file).subscribe((wbv) => {
+            console.log(wbv);
+            this.workbookValidation = wbv;
         });
     }
 
@@ -32,11 +32,12 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
     }
 
     processWB() {
-        console.log(this.wb !== undefined && this.wb.valid);
-        console.log(`You want to process ${this.wb}`)
+        console.log(this.workbookValidation !== undefined && this.workbookValidation.valid);
+        console.log(`You want to process ${this.workbookValidation}`)
     }
 
     seeValidation() {
         console.log('You want to see the validation');
+        this.spreadsheetService.shareValidation(this.workbookValidation);
     }
 }

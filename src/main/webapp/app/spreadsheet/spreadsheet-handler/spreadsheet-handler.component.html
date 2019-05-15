@@ -1,6 +1,6 @@
 <div>
     <span>{{resource}}</span>
-    <jhi-dragndrop fileLimit="1" (fileListEventEmitter)="validateFile($event[0])"></jhi-dragndrop>
-    <button [disabled]="wb === undefined || !wb.valid" (click)="processWB()">Process</button>
-    <button [disabled]="wb === undefined || wb.valid" (click)="seeValidation()">Validation</button>
+    <jhi-dragndrop fileLimit="1" (fileListEventEmitter)="validateWorkbook($event[0])"></jhi-dragndrop>
+    <button [disabled]="workbookValidation === undefined || !workbookValidation.valid" (click)="processWB()">Process</button>
+    <button [disabled]="workbookValidation === undefined || workbookValidation.valid" (click)="seeValidation()">Validation</button>
 </div>

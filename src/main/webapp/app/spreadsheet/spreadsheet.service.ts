@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { WorkbookValidationModel } from './models/validation.model';
 
 @Injectable()
 export class SpreadsheetService {
     private apiUrl = 'http://127.0.0.1:8081/api';
+    public sharedValidation = new BehaviorSubject(undefined);
 
     constructor(private http: Http) {
     }
@@ -18,5 +19,9 @@ export class SpreadsheetService {
 
         return this.http.post(fullUrl, formData)
             .map((response) => (<WorkbookValidationModel>response.json()));
+    }
+
+    shareValidation(wbv: WorkbookValidationModel) {
+        this.sharedValidation.next(wbv);
     }
 }

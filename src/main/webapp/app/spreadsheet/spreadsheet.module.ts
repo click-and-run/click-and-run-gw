@@ -4,6 +4,7 @@ import { SpreadsheetComponent } from './spreadsheet.component';
 import { SpreadsheetHandlerComponent } from './spreadsheet-handler/spreadsheet-handler.component';
 import { DragndropModule } from '../dragndrop/dragndrop.module';
 import { SpreadsheetService } from './spreadsheet.service';
+import { SpreadsheetValidationComponent } from './spreadsheet-validation/spreadsheet-validation.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { SpreadsheetService } from './spreadsheet.service';
     ],
     declarations: [
         SpreadsheetComponent,
-        SpreadsheetHandlerComponent
+        SpreadsheetHandlerComponent,
+        SpreadsheetValidationComponent
     ], exports: [
         SpreadsheetComponent
     ], providers: [
