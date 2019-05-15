@@ -1,12 +1,23 @@
-export interface WBValidationModel {
-    registrants: SheetValidationModel;
-    services: SheetValidationModel;
+export interface WorkbookValidationModel {
+    valid: boolean;
+    validations: Map<string, SheetValidationModel>
 }
 
 export interface SheetValidationModel {
     headers: Array<any>;
-    warnings: Array<any>
+    errors: Array<RowValidationModel>
+    warnings: Array<RowValidationModel>
     headerValid: boolean;
     valid: boolean;
-    errors: Array<any>
+}
+
+export interface RowValidationModel {
+    row: number;
+    violations: Array<FieldValidationModel>
+}
+
+export interface FieldValidationModel {
+    field: string;
+    value: string;
+    violation: string;
 }
