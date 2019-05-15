@@ -6,6 +6,7 @@ import { DragndropModule } from '../dragndrop/dragndrop.module';
 import { SpreadsheetService } from './spreadsheet.service';
 import { SpreadsheetValidationComponent } from './spreadsheet-validation/spreadsheet-validation.component';
 import { SheetValidationComponent } from './spreadsheet-validation/sheet-validation.component';
+import { FieldValidationComponent } from './spreadsheet-validation/field-validation.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { SheetValidationComponent } from './spreadsheet-validation/sheet-validat
         SpreadsheetComponent,
         SpreadsheetHandlerComponent,
         SpreadsheetValidationComponent,
-        SheetValidationComponent
+        SheetValidationComponent,
+        FieldValidationComponent
     ], exports: [
         SpreadsheetComponent
     ], providers: [

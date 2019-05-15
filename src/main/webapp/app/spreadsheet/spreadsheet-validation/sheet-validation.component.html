@@ -1,4 +1,6 @@
 <div>
     <div>{{name}}</div>
-    <div>{{validation}}</div>
+    <div *ngIf="!validation.headerValid">Header is not valid</div>
+    <jhi-field-validation *ngFor="let headerValidation of validation.headers"
+                          [fieldValidation]="headerValidation"></jhi-field-validation>
 </div>
