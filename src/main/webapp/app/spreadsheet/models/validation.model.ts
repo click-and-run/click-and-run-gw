@@ -4,7 +4,7 @@ export interface WorkbookValidationModel {
 }
 
 export interface SheetValidationModel {
-    headers: Array<any>;
+    headers: Array<FieldValidationModel>;
     errors: Array<RowValidationModel>
     warnings: Array<RowValidationModel>
     headerValid: boolean;
