@@ -3,4 +3,8 @@
     <div *ngIf="!validation.headerValid">Header is not valid</div>
     <jhi-field-validation *ngFor="let headerValidation of validation.headers"
                           [fieldValidation]="headerValidation"></jhi-field-validation>
+    <jhi-row-validation *ngFor="let error of validation.errors" [rowValidation]="error"
+                        severity="error"></jhi-row-validation>
+    <jhi-row-validation *ngFor="let warning of validation.warnings" [rowValidation]="warning"
+                        severity="warning"></jhi-row-validation>
 </div>

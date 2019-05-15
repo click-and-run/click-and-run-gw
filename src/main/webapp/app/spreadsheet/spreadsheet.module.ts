@@ -7,6 +7,7 @@ import { SpreadsheetService } from './spreadsheet.service';
 import { SpreadsheetValidationComponent } from './spreadsheet-validation/spreadsheet-validation.component';
 import { SheetValidationComponent } from './spreadsheet-validation/sheet-validation.component';
 import { FieldValidationComponent } from './spreadsheet-validation/field-validation.component';
+import { RowValidationComponent } from './spreadsheet-validation/row-validation.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { FieldValidationComponent } from './spreadsheet-validation/field-validat
         SpreadsheetHandlerComponent,
         SpreadsheetValidationComponent,
         SheetValidationComponent,
-        FieldValidationComponent
+        FieldValidationComponent,
+        RowValidationComponent
     ], exports: [
         SpreadsheetComponent
     ], providers: [
