@@ -12,7 +12,7 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
 
     @Input() public resource: string;
     private sub: Subscription;
-    private wb: WorkbookValidationModel;
+    public wb: WorkbookValidationModel;
 
     constructor(private spreadsheetService: SpreadsheetService) {
     }
@@ -29,5 +29,14 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.sub.unsubscribe()
+    }
+
+    processWB() {
+        console.log(this.wb !== undefined && this.wb.valid);
+        console.log(`You want to process ${this.wb}`)
+    }
+
+    seeValidation() {
+        console.log('You want to see the validation');
     }
 }
