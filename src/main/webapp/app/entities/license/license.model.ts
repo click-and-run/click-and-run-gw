@@ -9,7 +9,7 @@ const enum Service {
 
 const enum Language {
     'FR_FR',
-    'NL_BE',
+    'NL_NL',
     'DE_DE',
     'ES_ES',
     'IT_IT',
