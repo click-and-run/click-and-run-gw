@@ -12,11 +12,11 @@ export class DragndropDirective implements OnInit {
 
     @Input() private fileLimit: number;
 
-    private fileList: any = [];
+    private fileList: Array<File> = new Array<File>();
 
     protected _elementClass: Array<string> = [];
 
-    @Output() private fileListEventEmitter: EventEmitter<FileList> = new EventEmitter();
+    @Output() private fileListEventEmitter: EventEmitter<Array<File>> = new EventEmitter();
 
     @Input('class')
     @HostBinding('class')
@@ -56,7 +56,10 @@ export class DragndropDirective implements OnInit {
         this.removeClass(DragndropDirective.FILE_DRAGOVER);
 
         if (evt.dataTransfer.files.length <= this.fileLimit) {
-            this.fileList = evt.dataTransfer.files;
+            this.fileList = new Array<File>();
+            for (let idx = 0; idx < evt.dataTransfer.files.length; idx++) {
+                this.fileList.push(evt.dataTransfer.files.item(idx));
+            }
 
             if (this.fileList.length > 0) {
                 this.removeClass(DragndropDirective.FILE_CLEAR);

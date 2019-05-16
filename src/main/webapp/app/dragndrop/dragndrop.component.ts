@@ -9,9 +9,9 @@ export class DragndropComponent implements OnInit {
 
     @Input() public fileLimit: number;
 
-    public fileList: any = [];
+    public fileList: Array<File> = new Array<File>();
 
-    @Output() private fileListEventEmitter: EventEmitter<FileList> = new EventEmitter();
+    @Output() private fileListEventEmitter: EventEmitter<Array<File>> = new EventEmitter();
 
     constructor() {
     }
@@ -19,7 +19,7 @@ export class DragndropComponent implements OnInit {
     ngOnInit() {
     }
 
-    onFilesChange(files: FileList) {
+    onFilesChange(files: Array<File>) {
         this.fileList = files;
         this.fileListEventEmitter.emit(files);
     }
