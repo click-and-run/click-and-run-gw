@@ -18,11 +18,6 @@ export class DragndropComponent implements OnInit {
     ngOnInit() {
     }
 
-    onFilesChange(files: Array<File>) {
-        this.files = files;
-        this.filesChange.emit(files);
-    }
-
     public clearFiles() {
         this.files = new Array<File>();
     }

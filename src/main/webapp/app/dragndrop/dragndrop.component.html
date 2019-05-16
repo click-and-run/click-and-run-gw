@@ -1,5 +1,5 @@
 <jhi-alert></jhi-alert>
-<div class="dropzone" (filesChange)="onFilesChange($event)" jhiDragndrop [fileLimit]="fileLimit">
+<div class="dropzone" jhiDragndrop [(files)]="files" [fileLimit]="fileLimit">
     <div class="text-wrapper">
         <div *ngIf="files.length === 0" class="centered">Drop your file here!</div>
         <ul>

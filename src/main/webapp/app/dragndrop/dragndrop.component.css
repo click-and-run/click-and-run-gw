@@ -22,7 +22,7 @@
     background: #eee;
     border: 5px dashed #aaa;
 }
-.file-dragover {
+.file-dragged {
     background: #bbb;
 }
 .file-dropped {
