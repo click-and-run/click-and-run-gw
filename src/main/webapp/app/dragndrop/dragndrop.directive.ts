@@ -9,6 +9,7 @@ export class DragndropDirective implements OnInit {
     @Input() private fileLimit: number;
 
     @Input() private files: Array<File> = new Array<File>();
+    @Output() private filesChange: EventEmitter<Array<File>> = new EventEmitter();
 
     @HostBinding('class.file-dropped')
     get filePresence(): boolean {
@@ -21,8 +22,6 @@ export class DragndropDirective implements OnInit {
     }
 
     @HostBinding('class.file-dragged') fileDragged = false;
-
-    @Output() private filesChange: EventEmitter<Array<File>> = new EventEmitter();
 
     constructor(private alertService: JhiAlertService) {
     }
