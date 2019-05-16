@@ -43,6 +43,15 @@ export class SpreadsheetService implements OnDestroy {
             });
     }
 
+    public process(resource, file) {
+        const fullUrl = `${this.apiUrl}/${resource}/process`;
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        return this.http.post(fullUrl, formData);
+    }
+
     shareValidation(wbv: WorkbookValidationModel) {
         this.sharedValidation.next(wbv);
     }

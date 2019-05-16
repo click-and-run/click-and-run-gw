@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { SpreadsheetService } from '../spreadsheet.service';
 import { Subscription } from 'rxjs';
 import { WorkbookValidationModel } from '../models/validation.model';
+import { JhiAlertService } from 'ng-jhipster';
 
 @Component({
     selector: 'jhi-spreadsheet-handler',
@@ -11,28 +12,39 @@ import { WorkbookValidationModel } from '../models/validation.model';
 export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
 
     @Input() public resource: string;
-    private sub: Subscription;
     public workbookValidation: WorkbookValidationModel;
 
-    constructor(private spreadsheetService: SpreadsheetService) {
+    private subs: Array<Subscription> = new Array<Subscription>();
+    private file: File;
+
+    constructor(private spreadsheetService: SpreadsheetService, private alertService: JhiAlertService) {
     }
 
     ngOnInit() {
     }
 
     public validateWorkbook(file) {
-        this.sub = this.spreadsheetService.validate(this.resource, file).subscribe((wbv) => {
+        this.subs.push(this.spreadsheetService.validate(this.resource, file).subscribe((wbv) => {
             this.workbookValidation = wbv;
             this.spreadsheetService.shareValidation(this.workbookValidation);
-        });
-    }
-
-    ngOnDestroy() {
-        this.sub.unsubscribe()
+            if (this.workbookValidation.valid) {
+                this.file = file;
+            } else {
+                this.file = undefined;
+            }
+        }));
     }
 
     processWB() {
-        console.log(this.workbookValidation !== undefined && this.workbookValidation.valid);
-        console.log(`You want to process ${this.workbookValidation}`)
+        this.subs.push(this.spreadsheetService.process(this.resource, this.file).subscribe((response) => {
+            this.alertService.success(`File ${this.file.name} was processed with success.`);
+            this.workbookValidation = undefined;
+            this.spreadsheetService.shareValidation(undefined);
+            this.file = undefined;
+        }));
+    }
+
+    ngOnDestroy() {
+        this.subs.forEach((sub) => sub.unsubscribe())
     }
 }
