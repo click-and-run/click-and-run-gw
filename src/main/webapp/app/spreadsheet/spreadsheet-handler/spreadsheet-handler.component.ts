@@ -1,8 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SpreadsheetService } from '../spreadsheet.service';
 import { Subscription } from 'rxjs';
 import { WorkbookValidationModel } from '../models/validation.model';
 import { JhiAlertService } from 'ng-jhipster';
+import { DragndropComponent } from '../../dragndrop/dragndrop.component';
 
 @Component({
     selector: 'jhi-spreadsheet-handler',
@@ -10,6 +11,9 @@ import { JhiAlertService } from 'ng-jhipster';
     styles: []
 })
 export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
+
+    @ViewChild(DragndropComponent)
+    private  dragndropComponent: DragndropComponent;
 
     @Input() public resource: string;
     public workbookValidation: WorkbookValidationModel;
@@ -41,7 +45,12 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
             this.workbookValidation = undefined;
             this.spreadsheetService.shareValidation(undefined);
             this.file = undefined;
+            this.dragndropComponent.clearFiles();
         }));
+    }
+
+    clear() {
+        this.dragndropComponent.clearFiles();
     }
 
     ngOnDestroy() {
