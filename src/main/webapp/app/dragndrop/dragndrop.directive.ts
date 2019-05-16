@@ -10,13 +10,11 @@ export class DragndropDirective implements OnInit {
     static readonly FILE_DRAGOVER = 'file-dragover';
     static readonly FILE_DROPPED = 'file-dropped';
 
-    @Input() private fileLimit: number;
-
-    private fileList: Array<File> = new Array<File>();
-
     protected _elementClass: Array<string> = [];
 
-    @Output() private fileListEventEmitter: EventEmitter<Array<File>> = new EventEmitter();
+    @Input() private fileLimit: number;
+    private files: Array<File> = new Array<File>();
+    @Output() private filesChange: EventEmitter<Array<File>> = new EventEmitter();
 
     @Input('class')
     @HostBinding('class')
@@ -56,17 +54,17 @@ export class DragndropDirective implements OnInit {
         this.removeClass(DragndropDirective.FILE_DRAGOVER);
 
         if (evt.dataTransfer.files.length <= this.fileLimit) {
-            this.fileList = new Array<File>();
+            this.files = new Array<File>();
             for (let idx = 0; idx < evt.dataTransfer.files.length; idx++) {
-                this.fileList.push(evt.dataTransfer.files.item(idx));
+                this.files.push(evt.dataTransfer.files.item(idx));
             }
 
-            if (this.fileList.length > 0) {
+            if (this.files.length > 0) {
                 this.removeClass(DragndropDirective.FILE_CLEAR);
                 this.pushClass(DragndropDirective.FILE_DROPPED);
             }
 
-            this.fileListEventEmitter.emit(this.fileList);
+            this.filesChange.emit(this.files);
         } else {
             this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
         }
