@@ -28,6 +28,7 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
     }
 
     public validateWorkbook(file) {
+        console.log(`validating ${file.name}`);
         this.subs.push(this.spreadsheetService.validate(this.resource, file).subscribe((wbv) => {
             this.workbookValidation = wbv;
             this.spreadsheetService.shareValidation(this.workbookValidation);

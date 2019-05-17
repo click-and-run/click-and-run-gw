@@ -21,4 +21,8 @@ export class DragndropComponent implements OnInit {
     public clearFiles() {
         this.files = new Array<File>();
     }
+
+    public onFilesChange(files) {
+        this.filesChange.emit(files);
+    }
 }

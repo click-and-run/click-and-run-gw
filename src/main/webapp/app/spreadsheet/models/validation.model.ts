@@ -4,16 +4,19 @@ export interface WorkbookValidationModel {
 }
 
 export interface SheetValidationModel {
-    headers: Array<FieldValidationModel>;
+    headers: Array<HeaderValidationModel>;
     errors: Array<RowValidationModel>
     warnings: Array<RowValidationModel>
     headerValid: boolean;
     valid: boolean;
 }
 
-export interface RowValidationModel {
+export interface RowValidationModel extends FieldValidationModel{
     row: number;
-    violations: Array<FieldValidationModel>
+}
+
+export interface HeaderValidationModel extends FieldValidationModel {
+    column: number;
 }
 
 export interface FieldValidationModel {
