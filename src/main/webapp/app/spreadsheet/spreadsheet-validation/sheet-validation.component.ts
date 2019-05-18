@@ -7,7 +7,6 @@ import { SheetValidationModel } from '../models/validation.model';
     styles: []
 })
 export class SheetValidationComponent implements OnInit {
-    @Input() public name: string;
     @Input() public validation: SheetValidationModel;
 
     constructor() {

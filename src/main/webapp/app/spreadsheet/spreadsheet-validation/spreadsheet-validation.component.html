@@ -1,5 +1,10 @@
 <div *ngIf="workbookValidation !== undefined">
-    <div *ngFor="let sheetValidation of getSheetValidations()">
-        <jhi-sheet-validation *ngIf="!sheetValidation[1].valid" [name]="sheetValidation[0]" [validation]="sheetValidation[1]"></jhi-sheet-validation>
-    </div>
+    <ngb-tabset>
+        <ngb-tab [id]="sheetValidation.name" [title]="sheetValidation.name"
+                 *ngFor="let sheetValidation of getInvalidSheetValidations()">
+            <ng-template ngbTabContent>
+                <jhi-sheet-validation [validation]="sheetValidation.validation"></jhi-sheet-validation>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
 </div>

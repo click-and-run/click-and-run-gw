@@ -7,11 +7,13 @@ import { SpreadsheetService } from './spreadsheet.service';
 import { SpreadsheetValidationComponent } from './spreadsheet-validation/spreadsheet-validation.component';
 import { SheetValidationComponent } from './spreadsheet-validation/sheet-validation.component';
 import { TableValidationComponent } from './spreadsheet-validation/table-validation.component';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [
         CommonModule,
-        DragndropModule
+        DragndropModule,
+        NgbTabsetModule
     ],
     declarations: [
         SpreadsheetComponent,
