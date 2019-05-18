@@ -1,4 +1,14 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    OnInit,
+    Output,
+    Renderer2
+} from '@angular/core';
 import { JhiAlertService } from 'ng-jhipster';
 
 @Directive({
@@ -23,10 +33,17 @@ export class DragndropDirective implements OnInit {
 
     @HostBinding('class.file-dragged') fileDragged = false;
 
-    constructor(private alertService: JhiAlertService) {
+    private fileInput: any;
+
+    constructor(private alertService: JhiAlertService, private el: ElementRef, private renderer: Renderer2) {
     }
 
     ngOnInit(): void {
+        this.fileInput = this.renderer.createElement('input');
+        this.renderer.setStyle(this.fileInput, 'visibility', 'collapse');
+        this.renderer.setStyle(this.fileInput, 'position', 'absolute');
+        this.renderer.setAttribute(this.fileInput, 'type', 'file');
+        this.renderer.appendChild(this.el.nativeElement, this.fileInput);
     }
 
     @HostListener('dragover', ['$event']) onDragOver(evt) {
@@ -57,6 +74,13 @@ export class DragndropDirective implements OnInit {
             this.filesChange.emit(this.files);
         } else {
             this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
+        }
+    }
+
+    @HostListener('click', ['$event'])
+    public onClick(evt) {
+        if (this.fileAbsence) {
+            this.fileInput.click();
         }
     }
 }
