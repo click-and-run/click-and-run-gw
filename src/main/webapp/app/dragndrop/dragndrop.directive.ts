@@ -81,8 +81,13 @@ export class DragndropDirective implements OnInit {
 
     @HostListener('dblclick', ['$event'])
     public onDbclick(evt) {
-        console.log('Did you just double clicked ?');
-        this.handleFileList(new Array<File>())
+        this.clearFiles();
+    }
+
+    public clearFiles() {
+        const emptyFileList = new Array<File>();
+        this.handleFileList(emptyFileList);
+        this.fileInput.value = '';
     }
 
     private handleFileList(files) {

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { DragndropDirective } from './dragndrop.directive';
 
 @Component({
     selector: 'jhi-dragndrop',
@@ -11,6 +12,7 @@ export class DragndropComponent implements OnInit {
 
     files: Array<File> = new Array<File>();
     @Output() private filesChange: EventEmitter<Array<File>> = new EventEmitter();
+    @ViewChild(DragndropDirective) dragndropDirective: DragndropDirective;
 
     constructor() {
     }
@@ -19,7 +21,7 @@ export class DragndropComponent implements OnInit {
     }
 
     public clearFiles() {
-        this.files = new Array<File>();
+        this.dragndropDirective.clearFiles();
     }
 
     public onFilesChange(files) {
