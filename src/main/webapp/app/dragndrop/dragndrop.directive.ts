@@ -44,6 +44,10 @@ export class DragndropDirective implements OnInit {
         this.renderer.setStyle(this.fileInput, 'position', 'absolute');
         this.renderer.setAttribute(this.fileInput, 'type', 'file');
         this.renderer.appendChild(this.el.nativeElement, this.fileInput);
+
+        this.renderer.listen(this.fileInput, 'change', (evt) => {
+            this.handleFileList(evt.target.files);
+        });
     }
 
     @HostListener('dragover', ['$event']) onDragOver(evt) {
@@ -65,22 +69,26 @@ export class DragndropDirective implements OnInit {
         evt.stopPropagation();
         this.fileDragged = false;
 
-        if (evt.dataTransfer.files.length <= this.fileLimit) {
-            this.files = new Array<File>();
-            for (let idx = 0; idx < evt.dataTransfer.files.length; idx++) {
-                this.files.push(evt.dataTransfer.files.item(idx));
-            }
-
-            this.filesChange.emit(this.files);
-        } else {
-            this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
-        }
+        this.handleFileList(evt.dataTransfer.files);
     }
 
     @HostListener('click', ['$event'])
     public onClick(evt) {
         if (this.fileAbsence) {
             this.fileInput.click();
+        }
+    }
+
+    private handleFileList(files) {
+        if (files.length <= this.fileLimit) {
+            this.files = new Array<File>();
+            for (let idx = 0; idx < files.length; idx++) {
+                this.files.push(files.item(idx));
+            }
+
+            this.filesChange.emit(this.files);
+        } else {
+            this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
         }
     }
 }
