@@ -9,13 +9,15 @@ import { SheetValidationComponent } from './spreadsheet-validation/sheet-validat
 import { TableValidationComponent } from './spreadsheet-validation/table-validation.component';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgJhipsterModule } from 'ng-jhipster';
+import { ClickandrungwSharedCommonModule } from '../shared';
 
 @NgModule({
     imports: [
         CommonModule,
         DragndropModule,
         NgbTabsetModule,
-        NgJhipsterModule
+        NgJhipsterModule,
+        ClickandrungwSharedCommonModule
     ],
     declarations: [
         SpreadsheetComponent,
