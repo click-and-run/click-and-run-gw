@@ -1,7 +1,38 @@
 {
     "validation": {
         "violation": {
-            "test": "coucou"
+            "com.altissia.constraints.sheet.missing": "La feuille est manquante",
+            "com.altissia.constraints.header.blank": "Cette entête est vide",
+            "com.altissia.constraints.header.invalid": "Cette entête n'est pas valide dans cette feuille",
+            "com.altissia.constraints.header.duplicate": "Cette entête est définie plus d'une fois",
+            "com.altissia.constraints.header.missing": "Cette entête est manquante",
+            "com.altissia.constraints.login.duplicate": "Ce login est défini plus d'une fois",
+            "com.altissia.constraints.service.duplicate": "Ce service est défini plus d'une fois pour le même service",
+            "com.altissia.constraints.login.unavailable": "Ce login n'est pas disponible",
+            "com.altissia.constraints.registrant.undefined": "Ce login est utilisé mais pas défini",
+            "com.altissia.constraints.registrant.unused": "Ce login est défini mais pas utilisé",
+            "javax.validation.constraints.NotNull.message": "Ce champs doit être défini",
+            "clickandrun.error.validation.field.interfaceLanguage": "Cette valeur n'est pas une language d'interface",
+            "clickandrun.error.validation.field.studyLanguage": "Cette valeur n'est pas une language d'étude",
+            "org.hibernate.validator.constraints.Email.message": "Cette valeur n'est pas un email valide",
+            "javax.validation.constraints.Pattern.message": "Cette valeur ne respecte pas le modèle",
+            "clickandrun.error.validation.field.membership": "Cette valeur n'est un choix possible pour ce champs",
+            "javax.validation.constraints.Min.message": "Cette valeur est en deça du minimum"
+        },
+        "tab": {
+            "headers-title": "Erreurs de validation de l'entête",
+            "errors-title": "Erreurs de validation du contenu",
+            "warnings-title": "Avertissements de validation du contenu"
+        },
+        "table": {
+            "column-title": "Colonne",
+            "row-title": "Ligne",
+            "field-title": "Champ",
+            "value-title": "Valeur",
+            "error-title": "Erreur"
+        },
+        "handler": {
+            "process-btn": "Traiter"
         }
     }
 }

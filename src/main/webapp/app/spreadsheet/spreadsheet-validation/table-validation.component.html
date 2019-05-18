@@ -2,12 +2,11 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th *ngIf="rowType === 'header'"><span>Column</span> <span ></span></th>
-            <th *ngIf="rowType === 'content'"><span>Row</span> <span ></span></th>
-            <th ><span>Field</span> <span ></span></th>
-            <th ><span>Value</span> <span ></span></th>
-            <th ><span>Error</span> <span ></span></th>
-            <th></th>
+            <th *ngIf="rowType === 'header'"><span jhiTranslate="validation.table.column-title"></span></th>
+            <th *ngIf="rowType === 'content'"><span jhiTranslate="validation.table.row-title"></span></th>
+            <th><span jhiTranslate="validation.table.field-title"></span></th>
+            <th><span jhiTranslate="validation.table.value-title"></span></th>
+            <th><span jhiTranslate="validation.table.error-title"></span></th>
         </tr>
         </thead>
         <tbody>
@@ -16,7 +15,7 @@
             <td *ngIf="rowType === 'content'">{{row.row}}</td>
             <td>{{row.field}}</td>
             <td>{{row.value}}</td>
-            <td jhiTranslate="validation.violation.test">{{row.violation}}</td>
+            <td [jhiTranslate]="'validation.violation.' + row.violation">{{row.violation}}</td>
         </tr>
         </tbody>
     </table>

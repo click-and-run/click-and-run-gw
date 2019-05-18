@@ -1,7 +1,38 @@
 {
     "validation": {
         "violation": {
-            "test": "coucou"
+            "com.altissia.constraints.sheet.missing": "The sheet is missing",
+            "com.altissia.constraints.header.blank": "This header is blank",
+            "com.altissia.constraints.header.invalid": "This header is not valid for this sheet",
+            "com.altissia.constraints.header.duplicate": "This header is defined more than once",
+            "com.altissia.constraints.header.missing": "This header is missing",
+            "com.altissia.constraints.login.duplicate": "This login is defined more than once",
+            "com.altissia.constraints.service.duplicate": "This service is defined more than once for the same user",
+            "com.altissia.constraints.login.unavailable": "This login is not available",
+            "com.altissia.constraints.registrant.undefined": "This login is used but not defined",
+            "com.altissia.constraints.registrant.unused": "This login is defined but not used",
+            "javax.validation.constraints.NotNull.message": "This field must be specified",
+            "clickandrun.error.validation.field.interfaceLanguage": "This value is not a valid interface language",
+            "clickandrun.error.validation.field.studyLanguage": "This value is not a valid study language",
+            "org.hibernate.validator.constraints.Email.message": "This value is not a valid email",
+            "javax.validation.constraints.Pattern.message": "This value doesn't respect the pattern for this field",
+            "clickandrun.error.validation.field.membership": "This value isn't a possible choice of this field",
+            "javax.validation.constraints.Min.message": "This value is below the minimum for this field"
+        },
+        "tab": {
+            "headers-title": "Header Validation Errors",
+            "errors-title": "Content Validation Errors",
+            "warnings-title": "Content Validation Warnings"
+        },
+        "table": {
+            "column-title": "Column",
+            "row-title": "Row",
+            "field-title": "Field",
+            "value-title": "Value",
+            "error-title": "Error"
+        },
+        "handler": {
+            "process-btn": "Process"
         }
     }
 }
