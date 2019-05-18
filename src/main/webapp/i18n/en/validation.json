@@ -33,6 +33,10 @@
         },
         "handler": {
             "process-btn": "Process"
+        },
+        "upload": {
+            "bad-request": "Bad request, try again with other arguments",
+            "server-error": "Request failed for an unknown reason. Contact IT if it repeats."
         }
     }
 }

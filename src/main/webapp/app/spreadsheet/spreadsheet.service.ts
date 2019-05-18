@@ -14,9 +14,9 @@ export class SpreadsheetService implements OnDestroy {
     constructor(private http: Http, private eventManager: JhiEventManager, private alertService: JhiAlertService) {
         this.sub = this.eventManager.subscribe('clickandrungwApp.httpError', (error) => {
             if (error.content.status === 400) {
-                this.alertService.error('Request failed, please retry with different arguments.');
+                this.alertService.error('validation.upload.bad-request');
             } else {
-                this.alertService.error('Mmh, It seems you found an undesired feature. Contact your IT department if it persists.')
+                this.alertService.error('validation.upload.server-error');
             }
         });
     }
