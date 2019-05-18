@@ -1,6 +1,8 @@
 {
     "dragndrop": {
         "drop-file-instruction": "Drop your file here! Or click for dialog.",
-        "clear-file-instruction": "Double click to clear files"
+        "clear-file-instruction": "Double click to clear files",
+        "limit-one": "Only one file at a time!",
+        "limit-x": "Only {{ x }} files at a time!"
     }
 }

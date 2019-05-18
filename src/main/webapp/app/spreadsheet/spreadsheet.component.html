@@ -9,7 +9,7 @@
         </button>
     </h2>
     <jhi-alert></jhi-alert>
-    <jhi-dragndrop fileLimit="1" (filesChange)="validateWorkbook($event)"></jhi-dragndrop>
+    <jhi-dragndrop [fileLimit]="1" (filesChange)="validateWorkbook($event)"></jhi-dragndrop>
     <br/>
     <jhi-spreadsheet-validation *ngIf="workbookValidation !== undefined && !workbookValidation.valid"></jhi-spreadsheet-validation>
 </div>

@@ -1,6 +1,8 @@
 {
     "dragndrop": {
         "drop-file-instruction": "Dépose ton fichier ici! Ou clique pour le menu.",
-        "clear-file-instruction": "Double clique pour vider les fichiers"
+        "clear-file-instruction": "Double clique pour vider les fichiers",
+        "limit-one": "Un seul fichier à la fois!",
+        "limit-x": "Seulement {{ x }} fichiers à la fois!"
     }
 }

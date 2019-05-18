@@ -99,7 +99,11 @@ export class DragndropDirective implements OnInit {
 
             this.filesChange.emit(this.files);
         } else {
-            this.alertService.error('Only ' + this.fileLimit + ' file(s) at a time')
+            if (this.fileLimit === 1) {
+                this.alertService.error('dragndrop.limit-one');
+            } else {
+                this.alertService.error('dragndrop.limit-x', {x: this.fileLimit});
+            }
         }
     }
 }
