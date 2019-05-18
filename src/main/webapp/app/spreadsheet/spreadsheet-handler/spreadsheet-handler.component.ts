@@ -19,7 +19,7 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
     public workbookValidation: WorkbookValidationModel;
 
     private subs: Array<Subscription> = new Array<Subscription>();
-    private file: File;
+    public file: File;
 
     constructor(private spreadsheetService: SpreadsheetService, private alertService: JhiAlertService) {
     }
