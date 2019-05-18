@@ -39,6 +39,7 @@
         "upload": {
             "bad-request": "Mauvais argument, veuillez essayer un autre fichier",
             "server-error": "Échec de la requête pour une raison inconnue. Contactez l'IT si cela persiste."
-        }
+        },
+        "title": "Validation de tableurs"
     }
 }
