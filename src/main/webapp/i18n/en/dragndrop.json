@@ -1,5 +1,6 @@
 {
     "dragndrop": {
-        "drop-file-instruction": "Drop your file here!"
+        "drop-file-instruction": "Drop your file here! Or click for dialog.",
+        "clear-file-instruction": "Double click to clear files"
     }
 }

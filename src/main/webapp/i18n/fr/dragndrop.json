@@ -1,5 +1,6 @@
 {
     "dragndrop": {
-        "drop-file-instruction": "Dépose ton fichier ici!"
+        "drop-file-instruction": "Dépose ton fichier ici! Ou clique pour le menu.",
+        "clear-file-instruction": "Double clique pour vider les fichiers"
     }
 }
