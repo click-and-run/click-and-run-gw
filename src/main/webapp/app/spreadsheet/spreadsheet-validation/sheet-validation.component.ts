@@ -4,7 +4,7 @@ import { SheetValidationModel } from '../models/validation.model';
 @Component({
     selector: 'jhi-sheet-validation',
     templateUrl: './sheet-validation.component.html',
-    styles: []
+    styles: ['h3 {margin: 1rem 0}']
 })
 export class SheetValidationComponent implements OnInit {
     @Input() public validation: SheetValidationModel;

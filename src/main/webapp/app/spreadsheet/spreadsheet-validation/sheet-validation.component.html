@@ -1,5 +1,14 @@
-<div>
-    <jhi-table *ngIf="validation.headers.length >  0" [rows]="validation.headers" rowType="header"></jhi-table>
-    <jhi-table *ngIf="validation.errors.length >  0" [rows]="validation.errors"></jhi-table>
-    <jhi-table *ngIf="validation.warnings.length >  0" [rows]="validation.warnings"></jhi-table>
+<div class="row">
+    <div *ngIf="validation.headers.length >  0">
+        <h3><span>Header Validation Errors</span></h3>
+        <jhi-table [rows]="validation.headers" rowType="header"></jhi-table>
+    </div>
+    <div *ngIf="validation.errors.length >  0">
+        <h3><span>Content Validation Errors</span></h3>
+        <jhi-table [rows]="validation.errors"></jhi-table>
+    </div>
+    <div *ngIf="validation.warnings.length >  0">
+        <h3><span>Content Validation Warnings</span></h3>
+        <jhi-table [rows]="validation.warnings"></jhi-table>
+    </div>
 </div>
