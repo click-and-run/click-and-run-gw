@@ -1,37 +1,37 @@
 
 <div *ngIf="learner">
-    <h2><span>Learner</span> {{learner.id}}</h2>
+    <h2><span jhiTranslate="clickandrungwApp.learner.detail.title">Learner</span> {{learner.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span>First Name</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.learner.firstName">First Name</span></dt>
         <dd>
             <span>{{learner.firstName}}</span>
         </dd>
-        <dt><span>Last Name</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.learner.lastName">Last Name</span></dt>
         <dd>
             <span>{{learner.lastName}}</span>
         </dd>
-        <dt><span>Login</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.learner.login">Login</span></dt>
         <dd>
             <span>{{learner.login}}</span>
         </dd>
-        <dt><span>Interface Language</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.learner.interfaceLanguage">Interface Language</span></dt>
         <dd>
-            <span>{{learner.interfaceLanguage}}</span>
+            <span jhiTranslate="{{'clickandrungwApp.Language.' + learner.interfaceLanguage}}">{{learner.interfaceLanguage}}</span>
         </dd>
     </dl>
 
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 
     <button type="button"
             [routerLink]="['/', { outlets: { popup: 'learner/'+ learner.id + '/edit'} }]"
             replaceUrl="true"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
     </button>
 </div>

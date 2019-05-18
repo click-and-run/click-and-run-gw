@@ -1,0 +1,30 @@
+{
+    "clickandrungwApp": {
+        "license" : {
+            "home": {
+                "title": "Licenses",
+                "createLabel": "Create a new License",
+                "createOrEditLabel": "Create or edit a License"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete License {{ id }}?"
+            },
+            "detail": {
+                "title": "License"
+            },
+            "service": "Service",
+            "studyLanguage": "Study Language",
+            "validSince": "Valid Since",
+            "validUntil": "Valid Until",
+            "consumed": "Consumed",
+            "learner": "Learner"
+        }
+    },
+    "clickAndRunApp": {
+        "license" : {
+            "created": "A new License is created with identifier {{ param }}",
+            "updated": "A License is updated with identifier {{ param }}",
+            "deleted": "A License is deleted with identifier {{ param }}"
+        }
+    }
+}

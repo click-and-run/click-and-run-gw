@@ -1,0 +1,29 @@
+{
+    "clickandrungwApp": {
+        "learner" : {
+            "home": {
+                "title": "Learners",
+                "createLabel": "Create a new Learner",
+                "createOrEditLabel": "Create or edit a Learner"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Learner {{ id }}?"
+            },
+            "detail": {
+                "title": "Learner"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "login": "Login",
+            "interfaceLanguage": "Interface Language",
+            "licenses": "Licenses"
+        }
+    },
+    "clickAndRunApp": {
+        "learner" : {
+            "created": "A new Learner is created with identifier {{ param }}",
+            "updated": "A Learner is updated with identifier {{ param }}",
+            "deleted": "A Learner is deleted with identifier {{ param }}"
+        }
+    }
+}
