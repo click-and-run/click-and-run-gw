@@ -1,12 +1,12 @@
 <div class="table-responsive" *ngIf="rows">
     <table class="table table-striped">
         <thead>
-        <tr jhiSort>
-            <th jhiSortBy="id" *ngIf="rowType === 'header'"><span>Column</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="id" *ngIf="rowType === 'content'"><span>Row</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="firstName"><span>Field</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="lastName"><span>Value</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="login"><span>Error</span> <span class="fa fa-sort"></span></th>
+        <tr>
+            <th *ngIf="rowType === 'header'"><span>Column</span> <span ></span></th>
+            <th *ngIf="rowType === 'content'"><span>Row</span> <span ></span></th>
+            <th ><span>Field</span> <span ></span></th>
+            <th ><span>Value</span> <span ></span></th>
+            <th ><span>Error</span> <span ></span></th>
             <th></th>
         </tr>
         </thead>
