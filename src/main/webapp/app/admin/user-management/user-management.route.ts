@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Resolve, RouterStateSnapshot, Routes } from '@angular/router';
 
 import { JhiPaginationUtil } from 'ng-jhipster';
 
@@ -44,14 +44,14 @@ export const userMgmtRoute: Routes = [
             'pagingParams': UserResolvePagingParams
         },
         data: {
-            pageTitle: 'Users'
+            pageTitle: 'userManagement.home.title'
         }
     },
     {
         path: 'user-management/:login',
         component: UserMgmtDetailComponent,
         data: {
-            pageTitle: 'Users'
+            pageTitle: 'userManagement.home.title'
         }
     }
 ];

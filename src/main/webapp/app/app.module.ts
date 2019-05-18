@@ -12,18 +12,18 @@ import { ClickandrungwEntityModule } from './entities/entity.module';
 
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
-
-// jhipster-needle-angular-add-module-import JHipster will add new module here
-
 import {
+    ActiveMenuDirective,
+    ErrorComponent,
+    FooterComponent,
     JhiMainComponent,
     LayoutRoutingModule,
     NavbarComponent,
-    FooterComponent,
-    ProfileService,
     PageRibbonComponent,
-    ErrorComponent
+    ProfileService
 } from './layouts';
+
+// jhipster-needle-angular-add-module-import JHipster will add new module here
 
 @NgModule({
     imports: [
@@ -42,6 +42,7 @@ import {
         NavbarComponent,
         ErrorComponent,
         PageRibbonComponent,
+        ActiveMenuDirective,
         FooterComponent
     ],
     providers: [

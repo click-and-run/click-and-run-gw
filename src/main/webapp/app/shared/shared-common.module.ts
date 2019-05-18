@@ -1,10 +1,12 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import {
     ClickandrungwSharedLibsModule,
+    FindLanguageFromKeyPipe,
     JhiAlertComponent,
-    JhiAlertErrorComponent
+    JhiAlertErrorComponent,
+    JhiLanguageHelper
 } from './';
 
 @NgModule({
@@ -12,10 +14,12 @@ import {
         ClickandrungwSharedLibsModule
     ],
     declarations: [
+        FindLanguageFromKeyPipe,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ],
     providers: [
+        JhiLanguageHelper,
         Title,
         {
             provide: LOCALE_ID,
@@ -24,6 +28,7 @@ import {
     ],
     exports: [
         ClickandrungwSharedLibsModule,
+        FindLanguageFromKeyPipe,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ]

@@ -8,12 +8,14 @@ import { SpreadsheetValidationComponent } from './spreadsheet-validation/spreads
 import { SheetValidationComponent } from './spreadsheet-validation/sheet-validation.component';
 import { TableValidationComponent } from './spreadsheet-validation/table-validation.component';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgJhipsterModule } from 'ng-jhipster';
 
 @NgModule({
     imports: [
         CommonModule,
         DragndropModule,
-        NgbTabsetModule
+        NgbTabsetModule,
+        NgJhipsterModule
     ],
     declarations: [
         SpreadsheetComponent,
