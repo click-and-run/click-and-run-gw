@@ -50,6 +50,10 @@ export class SpreadsheetHandlerComponent implements OnInit, OnDestroy {
         }));
     }
 
+    clear() {
+        this.dragndropComponent.clearFiles();
+    }
+
     ngOnDestroy() {
         this.subs.forEach((sub) => sub.unsubscribe())
     }

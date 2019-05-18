@@ -32,7 +32,9 @@
             "error-title": "Erreur"
         },
         "handler": {
-            "process-btn": "Traiter"
+            "process-btn": "Traiter",
+            "clear-btn": "Vider",
+            "choose-btn": "Choisir"
         },
         "upload": {
             "bad-request": "Mauvais argument, veuillez essayer un autre fichier",

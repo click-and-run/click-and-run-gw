@@ -32,7 +32,9 @@
             "error-title": "Error"
         },
         "handler": {
-            "process-btn": "Process"
+            "process-btn": "Process",
+            "clear-btn": "Clear",
+            "choose-btn": "Choose"
         },
         "upload": {
             "bad-request": "Bad request, try again with other arguments",
