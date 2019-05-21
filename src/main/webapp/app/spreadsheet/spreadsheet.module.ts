@@ -9,6 +9,8 @@ import { TableValidationComponent } from './spreadsheet-validation/table-validat
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { ClickandrungwSharedCommonModule } from '../shared';
+import { RouterModule } from '@angular/router';
+import { spreadsheetRoute } from './spreadsheet.route';
 
 @NgModule({
     imports: [
@@ -16,7 +18,8 @@ import { ClickandrungwSharedCommonModule } from '../shared';
         DragndropModule,
         NgbTabsetModule,
         NgJhipsterModule,
-        ClickandrungwSharedCommonModule
+        ClickandrungwSharedCommonModule,
+        RouterModule.forRoot(spreadsheetRoute, {useHash: true})
     ],
     declarations: [
         SpreadsheetComponent,
