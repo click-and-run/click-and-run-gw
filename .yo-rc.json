@@ -7,7 +7,7 @@
     "baseName": "clickandrungw",
     "packageName": "com.altissia.clickandrungw",
     "packageFolder": "com/altissia/clickandrungw",
-    "serverPort": "8081",
+    "serverPort": "8082",
     "authenticationType": "jwt",
     "hibernateCache": "hazelcast",
     "clusteredHttpSession": false,

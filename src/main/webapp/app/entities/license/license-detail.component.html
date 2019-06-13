@@ -1,0 +1,47 @@
+
+<div *ngIf="license">
+    <h2><span>License</span> {{license.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Service</span></dt>
+        <dd>
+            <span>{{license.service}}</span>
+        </dd>
+        <dt><span>Study Language</span></dt>
+        <dd>
+            <span>{{license.studyLanguage}}</span>
+        </dd>
+        <dt><span>Valid Since</span></dt>
+        <dd>
+            <span>{{license.validSince | date:'medium'}}</span>
+        </dd>
+        <dt><span>Valid Until</span></dt>
+        <dd>
+            <span>{{license.validUntil | date:'medium'}}</span>
+        </dd>
+        <dt><span>Consumed</span></dt>
+        <dd>
+            <span>{{license.consumed}}</span>
+        </dd>
+        <dt><span>Learner</span></dt>
+        <dd>
+            <div *ngIf="license.learner">
+                <a [routerLink]="['/learner', license.learner?.id]">{{license.learner?.login}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'license/'+ license.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

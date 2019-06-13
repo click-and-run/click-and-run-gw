@@ -1,0 +1,91 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLearnerLabel">Create or edit a Learner</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!learner.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="learner.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                [(ngModel)]="learner.firstName" maxlength="50" pattern="\w+" />
+            <div [hidden]="!(editForm.controls.firstName?.dirty && editForm.controls.firstName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.firstName?.errors?.maxlength">
+                   This field cannot be longer than 50 characters.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.firstName?.errors?.pattern">
+                    This field should follow pattern for "First Name".
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                [(ngModel)]="learner.lastName" required minlength="2" maxlength="100" pattern="\w+" />
+            <div [hidden]="!(editForm.controls.lastName?.dirty && editForm.controls.lastName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastName?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastName?.errors?.minlength">
+                   This field is required to be at least 2 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastName?.errors?.maxlength">
+                   This field cannot be longer than 100 characters.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.lastName?.errors?.pattern">
+                    This field should follow pattern for "Last Name".
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_login">Login</label>
+            <input type="text" class="form-control" name="login" id="field_login"
+                [(ngModel)]="learner.login" required />
+            <div [hidden]="!(editForm.controls.login?.dirty && editForm.controls.login?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.login?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_interfaceLanguage">Interface Language</label>
+            <select class="form-control" name="interfaceLanguage" [(ngModel)]="learner.interfaceLanguage" id="field_interfaceLanguage"  required>
+                <option value="FR_FR">FR_FR</option>
+                <option value="NL_BE">NL_BE</option>
+                <option value="DE_DE">DE_DE</option>
+                <option value="ES_ES">ES_ES</option>
+                <option value="IT_IT">IT_IT</option>
+                <option value="EN_GB">EN_GB</option>
+            </select>
+            <div [hidden]="!(editForm.controls.interfaceLanguage?.dirty && editForm.controls.interfaceLanguage?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.interfaceLanguage?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
