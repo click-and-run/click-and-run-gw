@@ -2,7 +2,6 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { WorkbookValidationModel } from './models/validation.model';
-import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
 @Injectable()
 export class SpreadsheetService implements OnDestroy {
@@ -11,14 +10,7 @@ export class SpreadsheetService implements OnDestroy {
     public sharedValidation = new BehaviorSubject(undefined);
     private sub: Subscription;
 
-    constructor(private http: Http, private eventManager: JhiEventManager, private alertService: JhiAlertService) {
-        this.sub = this.eventManager.subscribe('clickandrungwApp.httpError', (error) => {
-            if (error.content.status === 400) {
-                this.alertService.error('validation.upload.bad-request');
-            } else {
-                this.alertService.error('validation.upload.server-error');
-            }
-        });
+    constructor(private http: Http) {
     }
 
     ngOnDestroy() {

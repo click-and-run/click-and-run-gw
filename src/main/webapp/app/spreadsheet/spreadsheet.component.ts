@@ -3,17 +3,17 @@ import { DragndropComponent } from '../dragndrop/dragndrop.component';
 import { WorkbookValidationModel } from './models/validation.model';
 import { Subscription } from 'rxjs';
 import { SpreadsheetService } from './spreadsheet.service';
-import { JhiAlertService } from 'ng-jhipster';
+import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
 @Component({
-  selector: 'jhi-spreadsheet',
-  templateUrl: './spreadsheet.component.html',
-  styles: []
+    selector: 'jhi-spreadsheet',
+    templateUrl: './spreadsheet.component.html',
+    styles: []
 })
 export class SpreadsheetComponent implements OnInit, OnDestroy {
 
     @ViewChild(DragndropComponent)
-    private  dragndropComponent: DragndropComponent;
+    private dragndropComponent: DragndropComponent;
 
     public resource = 'registration';
     public workbookValidation: WorkbookValidationModel;
@@ -21,7 +21,17 @@ export class SpreadsheetComponent implements OnInit, OnDestroy {
     private subs: Array<Subscription> = new Array<Subscription>();
     public file: File;
 
-    constructor(private spreadsheetService: SpreadsheetService, private alertService: JhiAlertService) {
+    constructor(private spreadsheetService: SpreadsheetService,
+                private alertService: JhiAlertService,
+                private eventManager: JhiEventManager) {
+        this.subs.push(this.eventManager.subscribe('clickandrungwApp.httpError', (error) => {
+            this.dragndropComponent.clearFiles();
+            if (error.content.status === 400) {
+                this.alertService.error('validation.upload.bad-request');
+            } else {
+                this.alertService.error('validation.upload.server-error');
+            }
+        }));
     }
 
     ngOnInit() {

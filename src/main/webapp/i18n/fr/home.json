@@ -1,9 +1,13 @@
 {
     "home": {
         "title": "Click And Run!",
-        "subtitle": "Ceci est votre page d'accueil",
+        "subtitle": "Ceci est la page d'accueil de Click-and-Run.",
         "logged": {
-            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+            "message": "Vous êtes connecté en tant que \"{{username}}\".",
+            "boring-message": "C'est ennuyeux ici, est-ce que vous voulez venir vous amuser par là ?"
+        },
+        "anon": {
+            "useless-message": "Vous ne pouvez rien faire d'utile sans être authentifié..."
         },
         "question": "Si vous avez des questions à propos de JHipster :",
         "link": {
