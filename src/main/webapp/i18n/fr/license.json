@@ -1,0 +1,30 @@
+{
+    "clickandrungwApp": {
+        "license" : {
+            "home": {
+                "title": "Licences",
+                "createLabel": "Créer une nouvelle licence",
+                "createOrEditLabel": "Créer ou éditer une licence"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Licence {{ id }} ?"
+            },
+            "detail": {
+                "title": "Licence"
+            },
+            "service": "Service",
+            "studyLanguage": "Langue d'étude",
+            "validSince": "Valide depuis",
+            "validUntil": "Valide jusque",
+            "consumed": "Consommé",
+            "learner": "Apprenant"
+        }
+    },
+    "clickAndRunApp": {
+        "license" : {
+            "created": "Une nouvelle licence a été créée avec l'identifiant {{ param }}",
+            "updated": "La Licence avec l'identifiant {{ param }} a été mise à jour",
+            "deleted": "La Licence avec l'identifiant {{ param }} a été supprimée"
+        }
+    }
+}

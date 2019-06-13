@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
 import { JhiPaginationUtil } from 'ng-jhipster';
@@ -34,7 +34,7 @@ export const licenseRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Licenses'
+            pageTitle: 'clickandrungwApp.license.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -42,7 +42,7 @@ export const licenseRoute: Routes = [
         component: LicenseDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Licenses'
+            pageTitle: 'clickandrungwApp.license.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -54,7 +54,7 @@ export const licensePopupRoute: Routes = [
         component: LicensePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Licenses'
+            pageTitle: 'clickandrungwApp.license.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -64,7 +64,7 @@ export const licensePopupRoute: Routes = [
         component: LicensePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Licenses'
+            pageTitle: 'clickandrungwApp.license.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -74,7 +74,7 @@ export const licensePopupRoute: Routes = [
         component: LicenseDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Licenses'
+            pageTitle: 'clickandrungwApp.license.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

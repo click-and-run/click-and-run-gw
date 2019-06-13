@@ -1,30 +1,30 @@
 
 <div *ngIf="license">
-    <h2><span>License</span> {{license.id}}</h2>
+    <h2><span jhiTranslate="clickandrungwApp.license.detail.title">License</span> {{license.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span>Service</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.service">Service</span></dt>
         <dd>
-            <span>{{license.service}}</span>
+            <span jhiTranslate="{{'clickandrungwApp.Service.' + license.service}}">{{license.service}}</span>
         </dd>
-        <dt><span>Study Language</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.studyLanguage">Study Language</span></dt>
         <dd>
-            <span>{{license.studyLanguage}}</span>
+            <span jhiTranslate="{{'clickandrungwApp.Language.' + license.studyLanguage}}">{{license.studyLanguage}}</span>
         </dd>
-        <dt><span>Valid Since</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.validSince">Valid Since</span></dt>
         <dd>
             <span>{{license.validSince | date:'medium'}}</span>
         </dd>
-        <dt><span>Valid Until</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.validUntil">Valid Until</span></dt>
         <dd>
             <span>{{license.validUntil | date:'medium'}}</span>
         </dd>
-        <dt><span>Consumed</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.consumed">Consumed</span></dt>
         <dd>
             <span>{{license.consumed}}</span>
         </dd>
-        <dt><span>Learner</span></dt>
+        <dt><span jhiTranslate="clickandrungwApp.license.learner">Learner</span></dt>
         <dd>
             <div *ngIf="license.learner">
                 <a [routerLink]="['/learner', license.learner?.id]">{{license.learner?.login}}</a>
@@ -35,13 +35,13 @@
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 
     <button type="button"
             [routerLink]="['/', { outlets: { popup: 'license/'+ license.id + '/edit'} }]"
             replaceUrl="true"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
     </button>
 </div>

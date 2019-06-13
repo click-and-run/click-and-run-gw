@@ -1,0 +1,29 @@
+{
+    "clickandrungwApp": {
+        "learner" : {
+            "home": {
+                "title": "Apprenants",
+                "createLabel": "Créer un nouvel apprenant",
+                "createOrEditLabel": "Créer ou éditer un apprenant"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer l'apprenant {{ id }} ?"
+            },
+            "detail": {
+                "title": "Apprenant"
+            },
+            "firstName": "Prénom",
+            "lastName": "Nom de famille",
+            "login": "Login",
+            "interfaceLanguage": "Langue d'interface",
+            "licenses": "Licences"
+        }
+    },
+    "clickAndRunApp": {
+        "learner" : {
+            "created": "Un nouvel apprenant a été créé avec l'identifiant {{ param }}",
+            "updated": "L'apprenant avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "L'apprenant avec l'identifiant {{ param }} a été supprimé"
+        }
+    }
+}

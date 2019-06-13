@@ -1,0 +1,13 @@
+{
+    "clickandrungwApp": {
+        "Language" : {
+            "null": "",
+            "FR_FR": "Français",
+            "NL_NL": "Néerlandais",
+            "DE_DE": "Allemand",
+            "ES_ES": "Espagnol",
+            "IT_IT": "Italien",
+            "EN_GB": "Anglais (GB)"
+        }
+    }
+}

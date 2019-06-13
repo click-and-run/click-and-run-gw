@@ -26,7 +26,9 @@ export class SpreadsheetValidationComponent implements OnInit, OnDestroy {
         this.subs.forEach((sub) => sub.unsubscribe());
     }
 
-    getSheetValidations() {
-        return Array.from(this.workbookValidation.validations.entries());
+    getInvalidSheetValidations() {
+        return Array.from(this.workbookValidation.validations.entries())
+            .map((entry) => ({name: entry[0], validation: entry[1]}))
+            .filter((entry) => !entry.validation.valid);
     }
 }

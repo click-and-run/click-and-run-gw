@@ -1,0 +1,11 @@
+{
+    "clickandrungwApp": {
+        "Service" : {
+            "null": "",
+            "COURSE": "Cours",
+            "ASSESSMENT": "Test de niveau",
+            "NEWS": "Actualité",
+            "VISIO": "Visioconférence"
+        }
+    }
+}
