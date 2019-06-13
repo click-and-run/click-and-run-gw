@@ -1,0 +1,5 @@
+<div>
+    <span>{{resource}}</span>
+    <jhi-dragndrop fileLimit="1" (filesChange)="validateWorkbook($event[0])"></jhi-dragndrop>
+    <button [disabled]="workbookValidation === undefined || !workbookValidation.valid" (click)="processWB()">Process</button>
+</div>

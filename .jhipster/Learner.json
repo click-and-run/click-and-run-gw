@@ -42,7 +42,7 @@
         {
             "fieldName": "interfaceLanguage",
             "fieldType": "Language",
-            "fieldValues": "FR_FR,NL_BE,DE_DE,ES_ES,IT_IT,EN_GB",
+            "fieldValues": "FR_FR,NL_NL,DE_DE,ES_ES,IT_IT,EN_GB",
             "fieldValidateRules": [
                 "required"
             ]

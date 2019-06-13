@@ -1,0 +1,7 @@
+<div>
+    <div>{{rowValidation.row}}</div>
+    <jhi-field-validation *ngFor="let fieldValidation of rowValidation.violations"
+                          [fieldValidation]="fieldValidation"
+                          [class.text-danger]="severity === 'error'"
+                          [class.text-warning]="severity === 'warning'"></jhi-field-validation>
+</div>
